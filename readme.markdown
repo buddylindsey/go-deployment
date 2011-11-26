@@ -1,4 +1,4 @@
-# Welcome to go-deployment
+# Welcome to go-deployment v 0.01
 
 ### Introduction
 Go deployment was built out of a want and a need. A want to deploy similar to how heroku deployments are handled, and a need to do it on my own server, specifically for godjango.com. I develop both Rails and Django applications so I wanted a script that handled both.
@@ -85,6 +85,10 @@ The above guid assumes you set the proper permissions to everything and your url
 # Contributions
 
 Contributions are gladley accepted and welcomed from all those who wish to help out.
+
+# Changelog
+
+v 0.01 - Basic scripts are working for Django Deployments
 
 # License
 
