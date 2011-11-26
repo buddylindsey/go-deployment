@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+	ServerName SITEURL
+	ServerAlias www.SITEURL
+	ServerAdmin person@example.com
+
+	DocumentRoot /home/ubuntu/sites/SITEURL/active
+
+	WSGIScriptAlias / /home/ubuntu/sites/SITEURL/active/django.wsgi
+
+	<Directory /home/ubuntu/sites/SITEURL/active>
+		Order allow,deny
+		Allow from all
+	</Directory>
+</VirtualHost>
