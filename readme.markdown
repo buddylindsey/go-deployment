@@ -13,48 +13,77 @@ This was a project I started and knocked out in about 7 hours so it is very, ver
 ## Installation
 
 1) Setup a user on your server to run everything through
+
 2) Install the following:
-> ruby
-> python
-> virtualenv
-> pip
-> apache
-> mod_wsgi
+* ruby
+* python
+* pip
+* virtualenv
+* apache2
+* mod_wsgi
 
 3) Get your code and I recommend putting in the home folder of the user you are doing this all with.
+
 4) Make the following folders
+
 > settings
+
 > virtulenvs
+
 > sites
+
 > repos
+
 5) add your public ssh-key to .ssh/authorized_keys like follows
+
 > command="/home/user/deploy.rb" ssh-rsa .....
+
 > make sure you put the correct path to the deploy.rb file
+
 6) edit deploy.rb, add_deploy.rb, templates/django.wsgi, and templates/virtualhost with all the correct paths.
 
 ## Usage
+
 1) use add_deploy.rb to add your website.
+
 > ruby add_deploy.rb
+
 2) use the url of your website things won't work correctly if you don't
+
 3) take the template of the virtualhost and copy it into /etc/apache2/sites-available
+
 4) rename the file to what you want for your site I usually use the url for the filename
+
 5) replace SITEURL in the file with your sites url that you used for add_deploy.rb (this will be automated in the future)
+
 6) run: sudo a2ensite site.com
+
 7) add a remote to your current git project. Much like heroku make sure your django project is in a subfolder.
+
 > git remote add go user@site.com:repos/site.com.git
+
 >> file structure should be something like
+
 >> project_name/
+
 >> project_name/requirements.txt
+
 >> project_name/project_name/
+
 >> project_name/project_name/__init__.py
+
 8) make sure you have a requirements.txt with django in it. (it must be in the root folder)
+
 9) do a: git push go master
+
 10) check your site.
 
 ## Assumptions
+
 The above guid assumes you set the proper permissions to everything and your url is pointing at your server
 
 # Contributions
+
 Contributions are gladley accepted and welcomed from all those who wish to help out.
 
 # License
