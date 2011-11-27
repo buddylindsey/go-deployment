@@ -92,3 +92,6 @@ tell "-- Adding server specific settings if there are any"
 #if(File.exists?("#{SETTINGS_DIR}/#{site_url}/settings_local.py"))
 #  `cp #{SETTINGS_DIR}/#{site_url}/settings_local.py #{SITE_DIR}/#{site_url}/#{DATETIME}`
   # append settings import to settings file
+#end
+
+exit()
