@@ -27,7 +27,7 @@ def python_app
 
   if(answer.chomp == "y")
     $stderr.puts "-- Running migrations"
-    #run migrations
+    #run migrations maybe
   end
 end
 
@@ -71,7 +71,7 @@ else
   exit()
 end
 
-$stderr.puts "-- Setting up a virtualenv"
+tell "-- Setting up a virtualenv"
 `virtualenv --no-site-packages #{VIRTUALENVS_DIR}/#{site_url}`
 
 tell "-- Installing dependencies"
@@ -87,15 +87,8 @@ end
 `ln -s #{SITE_DIR}/#{site_url}/#{DATETIME}/ #{SITE_DIR}/#{site_url}/active`
 `sed 's/SITENAME/#{site_url}/g' /#{ROOT_DIR}/templates/django.wsgi > #{SITE_DIR}/#{site_url}/active/django.wsgi`
 
-$stderr.puts "-- Adding server specific settings if there are any"
+tell "-- Adding server specific settings if there are any"
 # take settings place somewhere and copy over
-if(File.exists?("#{SETTINGS_DIR}/#{site_url}/settings_local.py"))
-  `cp #{SETTINGS_DIR}/#{site_url}/settings_local.py #{SITE_DIR}/#{site_url}/#{DATETIME}`
+#if(File.exists?("#{SETTINGS_DIR}/#{site_url}/settings_local.py"))
+#  `cp #{SETTINGS_DIR}/#{site_url}/settings_local.py #{SITE_DIR}/#{site_url}/#{DATETIME}`
   # append settings import to settings file
-end
-
-# symlink DATETIME to active folder
-tell "-- App deployed"
-
-# does a hard exit
-exit()
